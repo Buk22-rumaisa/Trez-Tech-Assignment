@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <!DOCTYPE html>
+<html>
+<head>
+  <title>Class Work Solution</title>
+</head>
+<body>
+
+<h2>Class Work — Form Validation</h2>
+
+<form>
+    <label>Name:</label>
+    <input type="text" id="name"><br><br>
+
+    <label>Age:</label>
+    <input type="text" id="age"><br><br>
+
+    <label>Email:</label>
+    <input type="text" id="email"><br><br>
+
+    <button type="button" id="submitBtn">Submit</button>
+</form>
+
+<p id="error" style="color: red;"></p>
+
+<script>
+const nameField = document.getElementById("name");
+const ageField = document.getElementById("age");
+const emailField = document.getElementById("email");
+const error = document.getElementById("error");
+const btn = document.getElementById("submitBtn");
+
+btn.addEventListener("click", function(){
+
+    // Clear previous error
+    error.textContent = "";
+
+    // NAME VALIDATION
+    if(nameField.value.trim() === ""){
+        error.textContent = "Name cannot be empty!";
+        return;
+    }
+
+    // AGE VALIDATION
+    if(isNaN(ageField.value) || ageField.value <= 0){
+        error.textContent = "Age must be a number greater than 0!";
+        return;
+    }
+
+    // EMAIL VALIDATION
+    if(!emailField.value.includes("@") || !emailField.value.includes(".")){
+        error.textContent = "Invalid email address!";
+        return;
+    }
+
+    // SUCCESS
+    error.style.color = "green";
+    error.textContent = "Form submitted successfully!";
+});
+</script>
+
+</body>
+</html>
+    </body>
+</html>

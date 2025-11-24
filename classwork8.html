@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <input id="name" placeholder="Student Name"><br><br>
+<input id="course" placeholder="Course"><br><br>
+<button id="gen">Generate Card</button>
+
+<div id="card"></div>
+
+<script>
+document.getElementById("gen").addEventListener("click", function(){
+    let n = document.getElementById("name").value;
+    let c = document.getElementById("course").value;
+    let id = Math.floor(Math.random() * 90000) + 10000;
+
+    document.getElementById("card").innerHTML = `
+        <h3>Student Card</h3>
+        <p>Name: ${n}</p>
+        <p>Course: ${c}</p>
+        <p>ID: #${id}</p>
+    `;
+});
+</script>
+    </body>
+</html>

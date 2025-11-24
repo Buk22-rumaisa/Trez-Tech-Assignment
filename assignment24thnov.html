@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <!DOCTYPE html>
+<html>
+<head>
+  <title>Assignment — Login Validation</title>
+</head>
+<body>
+
+<h2>Assignment — Login Form Validation</h2>
+
+<form>
+    <label>Username:</label>
+    <input type="text" id="username"><br><br>
+
+    <label>Password:</label>
+    <input type="password" id="password"><br><br>
+
+    <button type="button" id="loginBtn">Login</button>
+</form>
+
+<p id="loginError" style="color: red;"></p>
+
+<script>
+const userField = document.getElementById("username");
+const passField = document.getElementById("password");
+const loginError = document.getElementById("loginError");
+const loginBtn = document.getElementById("loginBtn");
+
+loginBtn.addEventListener("click", function(){
+
+    // Reset styles
+    userField.style.border = "1px solid black";
+    passField.style.border = "1px solid black";
+    loginError.textContent = "";
+
+    // USERNAME VALIDATION
+    if(userField.value.trim() === ""){
+        loginError.textContent = "Username cannot be empty!";
+        userField.style.border = "2px solid red";
+        return;
+    }
+
+    if(userField.value.length < 4){
+        loginError.textContent = "Username must be at least 4 characters!";
+        userField.style.border = "2px solid red";
+        return;
+    }
+
+    // PASSWORD VALIDATION
+    if(passField.value.length < 6){
+        loginError.textContent = "Password too short! Must be at least 6 characters.";
+        passField.style.border = "2px solid red";
+        return;
+    }
+
+    // SUCCESS
+    loginError.style.color = "green";
+    loginError.textContent = "Login successful!";
+});
+</script>
+
+</body>
+</html>
+    </body>
+</html>
